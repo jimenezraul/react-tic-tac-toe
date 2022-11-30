@@ -14,6 +14,7 @@ const Game = () => {
   useEffect(() => {
     const updateScore = () => {
       if (winner) {
+        if (winner === 'Is a draw') return;
         if (xIsNext) {
           setScore({ ...score, o: score.o + 1 });
           return;
@@ -24,7 +25,7 @@ const Game = () => {
       }
     };
     updateScore();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [winner]);
 
   const handleClick = (i: number) => {
